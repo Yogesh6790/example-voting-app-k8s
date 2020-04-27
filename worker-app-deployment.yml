@@ -10,13 +10,13 @@ spec:
     matchLabels:
       name: worker-app-pod
       app: demo-voting-app
-    template:
-      metadata:
+  template:
+    metadata:
+      name: worker-app-pod
+      labels:
         name: worker-app-pod
-        labels:
-          name: worker-app-pod
-          app: demo-voting-app
-      spec:
-        containers:
-          - name: woker-app
-            image: dockersamples/examplevotingapp_worker
+        app: demo-voting-app
+    spec:
+      containers:
+        - name: woker-app
+          image: dockersamples/examplevotingapp_worker

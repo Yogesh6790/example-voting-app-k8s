@@ -10,18 +10,18 @@ spec:
     matchLabels:
       name: postgres-pod
       app: demo-voting-app
-    template:
-      metadata:
+  template:
+    metadata:
+      name: postgres-pod
+      labels:
         name: postgres-pod
-        labels:
-          name: postgres-pod
-          app: demo-voting-app
-      spec:
-        containers:
-          - name: postgres
-            image: postgres:10.4
-            ports: 
-              - containerPort: 5432
-            envFrom:
-              - configMapRef:
-                name: postgres-config
+        app: demo-voting-app
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:10.4
+          ports: 
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+              name: postgres-config

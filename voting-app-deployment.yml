@@ -10,15 +10,15 @@ spec:
     matchLabels:
       name: voting-app-pod
       app: demo-voting-app
-    template:
-      metadata:
+  template:
+    metadata:
+      name: voting-app-pod
+      labels:
         name: voting-app-pod
-        labels:
-          name: voting-app-pod
-          app: demo-voting-app
-      spec:
-        containers:
-          - name: voting-app
-            image: dockersamples/examplevotingapp_vote
-            ports: 
-              - containerPort: 80
+        app: demo-voting-app
+    spec:
+      containers:
+        - name: voting-app
+          image: dockersamples/examplevotingapp_vote
+          ports: 
+            - containerPort: 80
